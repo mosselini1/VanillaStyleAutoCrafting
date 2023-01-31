@@ -1,0 +1,118 @@
+VanillaStyle
+AutoCrafting
+------------
+(VSAC)
+
+My take on an implementation of an autocrafter in a vanilla minecraft style
+
+Machine Info:
+
+
+How to use the machine:
+***********************
+
+1) Go to the input pad (33, -34, 4)
+
+2) Place your recipe inside the dropper:
+   - max 1 element per slot
+   - if your recipe contains empty spots please use (dry) sponges as filler
+
+3) Make sure all spots are filled then stand back and press the button.
+
+4) Go to the output pad (7, -50, 5) and wait for your items to arrive, the sponge filler will be returned as well
+
+Once the light goes back on and the dropper isn't blocked you can input again
+
+Machine circuit explanation:
+****************************
+
+Global idea: 
+~~~~~~~~~~~~
+1) INPUT craft recipe with filler items 
+2) send one by one to autocrafter
+3) remove the filler items
+4) craft
+5) flush/drain all the items from the crafter and the filter hopper
+6) OUTPUT
+7) refill the filter hopper
+
+Colour explanation for sub-circuits:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- jungle planks: once button pushed, disengages the circuit to disallow more pushes [state]
+
+- black wool: pulse extenders
+
+- smooth stone: make input less noisy when not needed
+
+- birch planks: make input less prone to errors by blocking input while working and display light when not [state]
+
+- sandstone: slow down the intake of items (hopper)
+
+- iron blocks: separate filler and non filler items
+
+- red sandstone: count number of filler items and store this amount
+
+- yellow wool: item filter (design seen in NimsTV Youtube video "Compact Item Filter - Minecraft: Tutorial") 
+
+- white wool: automatic container emptying (design seen in Cubehamster Youtube video "Auto Dispenser/Dropper - Fully Automatic - No Clicking Noises in Minecraft") 
+
+- orange wool: item holding cells (1 item per cell)
+
+- green wool: toggle state denoting all the holding cells being full [state]
+
+- light gray wool: send signal to generate as much pulses as filter items previously counted [state]
+
+- lime wool: timer (design seen in Dataless822 Youtube video "Minecraft Adjustable Hopper Time Tutorial") 
+
+- purple wool: detection system for the case when there is no filler [state]
+
+- prismarine bricks: follow up of purple wool, will activate filter re-creation [state]
+
+- dark blue wool: disengage holding cells circuits
+
+- light blue wool: holding cell hopper lock
+
+- dark blue wool + light blue wool: let held items free
+
+- cyan wool: filer pulses transport to crafter
+
+- lime concrete: connect timers together
+
+- terracota: signal to autocrafter to craft
+
+- oak planks: launches the flush of the crafter and the filter from all items [state]
+
+- stone bricks: the flush circuit
+
+- acacia planks: ends the flush (flush till no items left) by breaking the circuit [state]
+
+- brown wool: pulse duplication
+
+- red wool: state circuits resets
+
+- end stone: manages holding cell for filler items [state]
+
+- gray wool: stop locking hoppers for filter filters (signs) [state]
+
+For more details about the circuit please go check out the diagram provided with the mod
+
+Oddities:
+~~~~~~~~~
+The main filter item is sponge but there is a need for a filter of filters
+-> 4 different signs are used (can't be the same otherwise they would stack)
+(there is a filter for filler items -> there are filler elements for the filler item)
+
+Hoppers are covered in blackstone to avoid unnecessary contamination of their insides (and lag)
+
+There is an error chest, nothing should ever get into it, otherwise it means that the holding cells have a problem.
+
+Other:
+~~~~~~~~~
+2 pistons facing each other, 2 spaces apart and pushing around a block is what i call a state switcher (on/off signal)
+in the colour explanation it is mentioned as [state]
+
+The golden areas are the INPUT/OUTPUT
+The diamond block is the world spawn
+
+

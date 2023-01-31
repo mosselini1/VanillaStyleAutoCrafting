@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "vanillastyleautocrafting:block/auto_crafter"
+    }
+  }
+}

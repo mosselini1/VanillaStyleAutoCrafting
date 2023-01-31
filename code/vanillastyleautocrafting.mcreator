@@ -1,0 +1,87 @@
+{
+  "mod_elements": [
+    {
+      "name": "AutoCrafter",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "auto_crafter"
+    },
+    {
+      "name": "AutoCrafterRedstoneOn",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "auto_crafter_redstone_on",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AutoCrafterGui",
+      "type": "gui",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "auto_crafter_gui"
+    },
+    {
+      "name": "AutoCrafterRecipe",
+      "type": "recipe",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "auto_crafter_recipe"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "block.vanillastyleautocrafting.auto_crafter": "AutoCrafter"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "vanillastyleautocrafting",
+    "modName": "VanillaStyleAutoCrafting",
+    "version": "1.0.0",
+    "description": "an auto-crafting implementation vanilla style",
+    "author": "Mosselini1, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.19.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.vsac",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200348217
+}
